@@ -96,7 +96,7 @@ end
 
 ### Small image
 
-![Octocat]()
+![Dont try me](IMG_9390.jpeg)
 
 ### Large image
 
