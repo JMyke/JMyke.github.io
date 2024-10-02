@@ -96,11 +96,11 @@ end
 
 ### Small image
 
-![Dont try me](IMG_9390.jpeg)
+![Me](IMG_1888.jpeg)
 
 ### Large image
 
-![Me](IMG_1886.webp)
+![My themed Icon](IMG_1886.webp)
 
 
 ### Definition lists can be used with HTML syntax.
