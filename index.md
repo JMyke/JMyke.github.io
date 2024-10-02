@@ -98,7 +98,7 @@ end
 
 ### Large image
 
-![Branching](IMG_1352.jpeg)
+![Me](IMG_1352.jpeg)
 
 
 ### Definition lists can be used with HTML syntax.
