@@ -3,7 +3,7 @@ layout: default
 ---
 ### Large image
 
-![My themed Icon](IMG_1886.webp)
+![My themed Icon](IMG_1887.webp)
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
 
