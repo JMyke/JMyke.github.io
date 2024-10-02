@@ -7,7 +7,7 @@ layout: default
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
 
-[LinkedIn](https://www.linkedin.com/in/justinfarmer15/).
+[My LinkedIn Profile](https://www.linkedin.com/in/justinfarmer15/).
 
 There should be whitespace between paragraphs.
 
