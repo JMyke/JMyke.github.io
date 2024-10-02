@@ -4,7 +4,7 @@ layout: default
 Title: J Myke Projects
 ### Large image
 
-![My themed Icon](IMG_1887.webp)
+![My themed Icon](IMG_1886.webp)
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
 ### Small image
