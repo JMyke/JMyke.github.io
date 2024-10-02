@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+### Large image
+
+![My themed Icon](IMG_1886.webp)
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
 
@@ -97,11 +100,6 @@ end
 ### Small image
 
 ![Me](IMG_1888.jpeg)
-
-### Large image
-
-![My themed Icon](IMG_1886.webp)
-
 
 ### Definition lists can be used with HTML syntax.
 
