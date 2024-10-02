@@ -6,10 +6,11 @@ layout: default
 ![My themed Icon](IMG_1887.webp)
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
+
+[My LinkedIn Profile](https://www.linkedin.com/in/justinfarmer15/).
 ### Small image
 
 ![Me](IMG_1888.jpeg)
-[My LinkedIn Profile](https://www.linkedin.com/in/justinfarmer15/).
 
 There should be whitespace between paragraphs.
 
