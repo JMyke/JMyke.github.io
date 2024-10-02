@@ -6,7 +6,9 @@ layout: default
 ![My themed Icon](IMG_1887.webp)
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
+### Small image
 
+![Me](IMG_1888.jpeg)
 [My LinkedIn Profile](https://www.linkedin.com/in/justinfarmer15/).
 
 There should be whitespace between paragraphs.
@@ -96,10 +98,6 @@ end
   - level 2 item
   - level 2 item
 - level 1 item
-
-### Small image
-
-![Me](IMG_1888.jpeg)
 
 ### Definition lists can be used with HTML syntax.
 
