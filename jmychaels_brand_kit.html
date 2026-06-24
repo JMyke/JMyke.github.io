@@ -1,0 +1,527 @@
+
+<style>
+:root { --g:#C9A432; --bg:#0C0C0E; --ir:#16161A; --sm:#1E1E24; --bd:#2A2A30; --pc:#EDE4C8; --ms:#9898A8; --st:#7490B4; --am:#8B6AB8; --dm:#44444C; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--pc);font-family:Inter,-apple-system,sans-serif;min-height:100vh;}
+.header{border-bottom:1px solid var(--bd);padding:22px 32px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;}
+.brand-title{font-family:'Oswald',Impact,sans-serif;font-size:clamp(24px,4vw,40px);font-weight:700;letter-spacing:.05em;color:var(--pc);line-height:1;}
+.eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--g);font-weight:600;margin-bottom:6px;}
+.sub{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ms);margin-top:6px;}
+.tagline-sm{font-family:'Oswald',Impact,sans-serif;font-size:11px;color:var(--g);font-weight:700;letter-spacing:.1em;line-height:1.6;text-align:right;}
+.tabs{border-bottom:1px solid var(--bd);padding:0 32px;display:flex;overflow-x:auto;}
+.tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--dm);padding:13px 18px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;font-weight:400;white-space:nowrap;transition:color .15s;}
+.tab.active{border-bottom-color:var(--g);color:var(--g);font-weight:700;}
+.main{padding:36px 32px;max-width:900px;}
+.section{display:none;}.section.active{display:block;}
+.sl{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--g);font-weight:600;margin-bottom:12px;}
+.hr{height:1px;background:var(--bd);margin:30px 0;}
+.card{background:var(--sm);border:1px solid var(--bd);border-radius:8px;margin-bottom:14px;}
+.card-h{padding:10px 18px;border-bottom:1px solid var(--bd);font-size:9px;font-family:monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--g);}
+.card-b{padding:18px;font-size:13px;line-height:1.85;color:var(--pc);white-space:pre-wrap;font-family:Georgia,serif;}
+.tagline-hero{font-family:'Oswald',Impact,sans-serif;font-size:clamp(20px,4vw,44px);font-weight:700;line-height:1.1;letter-spacing:.03em;color:var(--pc);}
+.tagline-hero span{color:var(--g);}
+.tagline-wrap{padding:32px 0 28px;border-bottom:1px solid var(--bd);margin-bottom:30px;}
+.tagline-desc{margin-top:16px;font-size:13px;color:var(--ms);max-width:520px;line-height:1.8;}
+.tagline-desc strong{color:var(--pc);font-weight:600;}
+.pillars{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+.pillar{flex:1 1 180px;background:var(--ir);border:1px solid var(--bd);border-radius:8px;padding:20px 18px;}
+.pillar-icon{font-size:22px;margin-bottom:10px;}
+.pillar-lbl{font-size:9px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
+.pillar-tag{font-size:13px;font-weight:700;color:var(--pc);margin-bottom:8px;}
+.pillar-body{font-size:12px;color:var(--ms);line-height:1.7;}
+.voice-grid{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+.voice-card{flex:1 1 220px;background:var(--sm);border:1px solid var(--bd);border-radius:8px;}
+.voice-h{padding:10px 16px;border-bottom:1px solid var(--bd);font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;}
+.voice-b{padding:14px 16px;}
+.voice-item{font-size:12px;color:var(--ms);margin-bottom:9px;padding-left:10px;line-height:1.6;border-radius:0;}
+.swatches{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:30px;}
+.swatch-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.swatch-box{width:38px;height:38px;border-radius:6px;border:1px solid var(--bd);flex-shrink:0;}
+.swatch-name{font-size:11px;font-weight:600;color:var(--pc);}
+.swatch-hex{font-family:monospace;font-size:10px;color:var(--ms);}
+.group-lbl{font-size:11px;color:var(--ms);margin-bottom:12px;}
+.keywords{margin-top:4px;}
+.kw{display:inline-block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:4px 9px;border:1px solid var(--g);color:var(--g);border-radius:2px;margin:0 6px 6px 0;}
+.navtags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.navtag{background:var(--sm);border:1px solid var(--bd);border-radius:4px;padding:8px 14px;font-size:13px;color:var(--pc);}
+.page-spec{background:var(--sm);border:1px solid var(--bd);border-radius:8px;margin-bottom:12px;}
+.ps-h{padding:12px 18px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ps-title{font-size:13px;font-weight:600;color:var(--pc);}
+.ps-sub{font-size:11px;color:var(--ms);margin-top:2px;}
+.ps-url{font-family:monospace;font-size:9px;color:var(--dm);}
+.ps-b{padding:12px 18px;}
+.ps-row{display:flex;gap:10px;margin-bottom:9px;align-items:flex-start;}
+.ps-num{width:18px;height:18px;border-radius:50%;background:var(--bg);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--g);font-weight:700;flex-shrink:0;margin-top:1px;}
+.ps-text{font-size:12px;color:var(--ms);line-height:1.65;}
+.ps-key{color:var(--pc);font-weight:600;}
+.ad-card{background:var(--ir);border:1px solid var(--bd);border-radius:8px;margin-bottom:16px;}
+.ad-h{padding:10px 18px;border-bottom:1px solid var(--bd);display:flex;gap:10px;align-items:center;}
+.ad-type{font-family:monospace;font-size:9px;color:var(--g);text-transform:uppercase;letter-spacing:.15em;}
+.ad-sep{color:var(--dm);}
+.ad-name{font-size:13px;font-weight:600;color:var(--pc);}
+.ad-b{padding:18px;}
+.ad-row{margin-bottom:14px;}
+.ad-k{font-family:monospace;font-size:9px;color:var(--st);text-transform:uppercase;letter-spacing:.18em;margin-bottom:4px;}
+.ad-v{font-size:13px;color:var(--pc);line-height:1.85;white-space:pre-wrap;font-family:Georgia,serif;}
+.hash-card{background:var(--sm);border:1px solid var(--bd);border-radius:8px;padding:18px 20px;}
+.hash-lbl{font-size:12px;color:var(--pc);font-weight:600;margin-bottom:8px;}
+.hash-owned{font-family:monospace;font-size:12px;color:var(--g);line-height:2.2;}
+.hash-niche{font-family:monospace;font-size:12px;color:var(--ms);line-height:2.2;}
+.hash-formula{font-size:13px;color:var(--ms);font-style:italic;}
+.hash-section{margin-bottom:18px;}
+.platform-card{background:var(--sm);border:1px solid var(--bd);border-radius:8px;padding:18px 20px;margin-bottom:24px;}
+.plat-title{font-size:14px;font-weight:700;color:var(--pc);margin-bottom:8px;}
+.plat-body{font-size:13px;color:var(--ms);line-height:1.7;}
+.plat-domain{font-family:monospace;color:var(--g);}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap">
+
+<h2 class="sr-only">J Mychaels Brand Kit — Faith, Fitness, Wholeness</h2>
+
+<div class="header">
+  <div>
+    <div class="eyebrow">Brand Kit — 2026</div>
+    <div class="brand-title">J MYCHAELS</div>
+    <div class="sub">Faith · Fitness · Wholeness</div>
+  </div>
+  <div>
+    <div class="tagline-sm">ONE LIFE. ONE BODY.</div>
+    <div class="tagline-sm">ONE MIND. BUILT TO LAST.</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab(0)">Brand Identity</button>
+  <button class="tab" onclick="switchTab(1)">Website Blueprint</button>
+  <button class="tab" onclick="switchTab(2)">Ad Copy</button>
+</div>
+
+<div class="main">
+
+  <!-- BRAND IDENTITY -->
+  <div id="s0" class="section active">
+
+    <div class="tagline-wrap">
+      <div class="sl">Core Tagline</div>
+      <div class="tagline-hero">ONE LIFE. <span>ONE BODY.</span> ONE MIND. BUILT TO LAST.</div>
+      <p class="tagline-desc">Every word carries weight. <strong>One Life</strong> — you only get one shot, make it count. <strong>One Body</strong> — honor what you've been given. <strong>One Mind</strong> — your thoughts shape your reality, guard them fiercely. <strong>Built to Last</strong> — endurance, legacy, not trends.</p>
+    </div>
+
+    <div class="sl">Mission & Vision</div>
+    <div class="card">
+      <div class="card-h">Mission Statement</div>
+      <div class="card-b">J Mychaels exists for people who refuse to compartmentalize their lives. We believe your faith fuels your body, your body expresses your spirit, and your mind anchors it all. This is holistic living — and we build for people who pursue every version of who they're meant to be.</div>
+    </div>
+    <div class="card">
+      <div class="card-h">Vision</div>
+      <div class="card-b">To become the defining lifestyle brand for people who pursue wholeness — not just fitness, not just faith, but the full integration of mind, body, and spirit. Built to last means built for the long game: your legacy, your discipline, your life.</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">The Brand Story</div>
+    <div class="card">
+      <div class="card-h">Origin — About Page · Bio · Pitches</div>
+      <div class="card-b">J Mychaels wasn't born in a boardroom. It was born in the gap — that space between your morning devotion and your afternoon workout. Between the scripture you carry in your heart and the weight you carry in the gym. Between who you are on Sunday and who you're becoming every other day of the week.
+
+Most people live like those things are separate. Like you have to choose which part of yourself shows up today — the faithful one, the disciplined one, the mentally sharp one. J Mychaels was built for people who refuse that choice.
+
+One Life. One Body. One Mind. Built to Last. That's not just a tagline. It's a declaration that everything you are — spirit, muscle, mindset — is worth investing in. Every rep, every prayer, every early morning is building something that outlasts the moment.
+
+We make gear for that person. The one who trains with purpose. The one whose faith is the foundation, not the footnote.
+
+Welcome to J Mychaels.</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">The Three Pillars</div>
+    <div class="pillars">
+      <div class="pillar" style="border-top:3px solid var(--st)">
+        <div class="pillar-icon">🧠</div>
+        <div class="pillar-lbl" style="color:var(--st)">Mind</div>
+        <div class="pillar-tag">Clarity is strength.</div>
+        <div class="pillar-body">What you think shapes what you become. J Mychaels is for people who guard their mindset as fiercely as their physical health. Affirmations over anxiety. Purpose over noise. Intention over reaction.</div>
+      </div>
+      <div class="pillar" style="border-top:3px solid var(--g)">
+        <div class="pillar-icon">🏋️</div>
+        <div class="pillar-lbl" style="color:var(--g)">Body</div>
+        <div class="pillar-tag">Temple. Machine. Both.</div>
+        <div class="pillar-body">The body is sacred and built to perform. We make gear for people who treat it like both — who train hard, recover well, and show up consistently because they know the work compounds.</div>
+      </div>
+      <div class="pillar" style="border-top:3px solid var(--am)">
+        <div class="pillar-icon">✝️</div>
+        <div class="pillar-lbl" style="color:var(--am)">Spirit</div>
+        <div class="pillar-tag">Faith drives discipline.</div>
+        <div class="pillar-body">Faith isn't a Sunday activity. It's the foundation underneath everything. J Mychaels is for people whose belief system drives their endurance, their character, and how they care for others.</div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Brand Voice</div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-h" style="color:#5BA05B">✓ Sounds Like</div>
+        <div class="voice-b">
+          <div class="voice-item" style="border-left:2px solid #3A6A3A">Direct and confident — no fluff, no filler</div>
+          <div class="voice-item" style="border-left:2px solid #3A6A3A">Warm but firm — care deeply, speak truthfully</div>
+          <div class="voice-item" style="border-left:2px solid #3A6A3A">Faith-informed, not faith-exclusive</div>
+          <div class="voice-item" style="border-left:2px solid #3A6A3A">Build. Endure. Thrive. Honor. Rise.</div>
+          <div class="voice-item" style="border-left:2px solid #3A6A3A">Speaks to identity, not just product</div>
+        </div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-h" style="color:#A05B5B">✗ Not This</div>
+        <div class="voice-b">
+          <div class="voice-item" style="border-left:2px solid #6A3A3A">Preachy or exclusive in tone</div>
+          <div class="voice-item" style="border-left:2px solid #6A3A3A">Generic motivational poster language</div>
+          <div class="voice-item" style="border-left:2px solid #6A3A3A">Fast fashion aesthetics</div>
+          <div class="voice-item" style="border-left:2px solid #6A3A3A">Overly religious — we embody, we don't lecture</div>
+          <div class="voice-item" style="border-left:2px solid #6A3A3A">Performative or trend-chasing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Brand Color Palette</div>
+    <div class="swatches">
+      <div>
+        <div class="group-lbl">Primary</div>
+        <div class="swatch-row"><div class="swatch-box" style="background:#0C0C0E"></div><div><div class="swatch-name">Void — Background</div><div class="swatch-hex">#0C0C0E</div></div></div>
+        <div class="swatch-row"><div class="swatch-box" style="background:#C9A432"></div><div><div class="swatch-name">Gold — Accent / Power</div><div class="swatch-hex">#C9A432</div></div></div>
+        <div class="swatch-row"><div class="swatch-box" style="background:#EDE4C8"></div><div><div class="swatch-name">Parchment — Text</div><div class="swatch-hex">#EDE4C8</div></div></div>
+      </div>
+      <div>
+        <div class="group-lbl">Secondary</div>
+        <div class="swatch-row"><div class="swatch-box" style="background:#7490B4"></div><div><div class="swatch-name">Steel Blue — Mind</div><div class="swatch-hex">#7490B4</div></div></div>
+        <div class="swatch-row"><div class="swatch-box" style="background:#8B6AB8"></div><div><div class="swatch-name">Amethyst — Spirit</div><div class="swatch-hex">#8B6AB8</div></div></div>
+        <div class="swatch-row"><div class="swatch-box" style="background:#1E1E24"></div><div><div class="swatch-name">Iron — Cards</div><div class="swatch-hex">#1E1E24</div></div></div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Power Words & Keywords</div>
+    <div class="keywords">
+      <span class="kw">One Life</span><span class="kw">One Body</span><span class="kw">One Mind</span><span class="kw">Built</span><span class="kw">Endure</span><span class="kw">Thrive</span><span class="kw">Whole</span><span class="kw">Discipline</span><span class="kw">Commit</span><span class="kw">Rise</span><span class="kw">Purpose</span><span class="kw">Legacy</span><span class="kw">Honor</span><span class="kw">Grounded</span><span class="kw">Sacred</span><span class="kw">Relentless</span><span class="kw">Lasting</span><span class="kw">Wholeness</span><span class="kw">Holistic</span><span class="kw">Foundation</span>
+    </div>
+  </div>
+
+  <!-- WEBSITE BLUEPRINT -->
+  <div id="s1" class="section">
+
+    <div class="sl">Platform</div>
+    <div class="platform-card">
+      <div class="plat-title">Shopify + Printify or Printful</div>
+      <div class="plat-body">Build on Shopify — the e-commerce standard. Connect Printify (best pricing) or Printful (best quality + custom branding) for print-on-demand fulfillment. Domain: <span class="plat-domain">jmychaels.com</span></div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Navigation</div>
+    <div class="navtags">
+      <div class="navtag">Home</div><div class="navtag">Shop</div><div class="navtag">Our Story</div><div class="navtag">The Journal</div><div class="navtag">Community</div><div class="navtag">Contact</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Homepage — Section by Section</div>
+    <div class="card"><div class="card-h">Hero — Full Screen</div><div class="card-b">HEADLINE: One Life. One Body. One Mind. Built to Last.
+
+SUBHEADLINE: Gear for people who refuse to separate their faith from their fitness.
+
+CTA: Shop the Collection →
+
+VISUAL: Full-bleed dark photo — person mid-rep in a gym, or silhouette at sunrise. J Mychaels logo subtle in corner. Gold accent lighting.</div></div>
+
+    <div class="card"><div class="card-h">Brand Pillars Section</div><div class="card-b">EYEBROW: Built Around Three Things
+
+MIND — Clarity Is Strength
+Your mindset is your foundation. Guard it fiercely.
+
+BODY — Temple. Machine. Both.
+Train with purpose. Recover with intention.
+
+SPIRIT — Faith Drives Discipline
+What you believe shapes how you build.</div></div>
+
+    <div class="card"><div class="card-h">Brand Story Pull Quote</div><div class="card-b">"J Mychaels was built for the gap — between your morning devotion and your afternoon workout. Between who you are on Sunday and who you're becoming every other day of the week."
+
+CTA: Read Our Story →</div></div>
+
+    <div class="card"><div class="card-h">Community / Social Proof</div><div class="card-b">HEADLINE: Built Together
+SUBHEADLINE: Real people. Real purpose. Real results.
+
+[Instagram / UGC photo grid — 6 images]
+
+CTA: Tag @jmychaels to be featured</div></div>
+
+    <div class="card"><div class="card-h">Email Sign-Up</div><div class="card-b">HEADLINE: Join the Movement
+SUBHEADLINE: New drops, early access, and stories built to move you.
+
+[Email input + "I'm In" button]</div></div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Inner Pages</div>
+
+    <div class="page-spec">
+      <div class="ps-h"><div><div class="ps-title">Our Story</div><div class="ps-sub">Where the brand comes from</div></div><div class="ps-url">/our-story</div></div>
+      <div class="ps-b">
+        <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><span class="ps-key">Hero: </span>We Don't Believe in Half Lives — J Mychaels was built for the whole you.</div></div>
+        <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><span class="ps-key">Origin Story: </span>Full brand story — the gap between faith, fitness, and mindset. First person, warm, honest.</div></div>
+        <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><span class="ps-key">Three Pillars: </span>Mind / Body / Spirit visual cards. This is the brand DNA.</div></div>
+        <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><span class="ps-key">Founder's Statement: </span>Brief personal message from you. Authentic. Not a corporate bio.</div></div>
+        <div class="ps-row"><div class="ps-num">5</div><div class="ps-text"><span class="ps-key">CTA: </span>Shop the collection that started it all →</div></div>
+      </div>
+    </div>
+
+    <div class="page-spec">
+      <div class="ps-h"><div><div class="ps-title">Shop</div><div class="ps-sub">Organized by pillar</div></div><div class="ps-url">/shop</div></div>
+      <div class="ps-b">
+        <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><span class="ps-key">Filter Bar: </span>All | Mind | Body | Spirit | Accessories</div></div>
+        <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><span class="ps-key">Mind Collection: </span>Mindset tees, affirmation hoodies, statement pieces. Darker, cerebral design language.</div></div>
+        <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><span class="ps-key">Body Collection: </span>Dry-fit tees, shorts, compression, joggers. Performance-forward aesthetic.</div></div>
+        <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><span class="ps-key">Spirit Collection: </span>Faith-forward, scripture-inspired. Most recognizable as the brand's faith identity.</div></div>
+        <div class="ps-row"><div class="ps-num">5</div><div class="ps-text"><span class="ps-key">Accessories: </span>Hats, resistance bands, foam rollers, water bottles — all branded.</div></div>
+      </div>
+    </div>
+
+    <div class="page-spec">
+      <div class="ps-h"><div><div class="ps-title">The Journal</div><div class="ps-sub">Content hub — SEO + community</div></div><div class="ps-url">/journal</div></div>
+      <div class="ps-b">
+        <div class="ps-row"><div class="ps-num">1</div><div class="ps-text"><span class="ps-key">Mind Posts: </span>"Why Your Morning Routine Is a Form of Prayer." Mindset, discipline, mental health.</div></div>
+        <div class="ps-row"><div class="ps-num">2</div><div class="ps-text"><span class="ps-key">Body Posts: </span>"The 5-Day Program for People Who Train With Purpose." Workouts, nutrition, recovery.</div></div>
+        <div class="ps-row"><div class="ps-num">3</div><div class="ps-text"><span class="ps-key">Spirit Posts: </span>"What Discipline Taught Me About Faith." Community stories, devotional content.</div></div>
+        <div class="ps-row"><div class="ps-num">4</div><div class="ps-text"><span class="ps-key">Cadence: </span>1 post per week minimum. Builds organic search traffic and brand depth over time.</div></div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Product Page Template</div>
+    <div class="card"><div class="card-h">Apply to Every Listing</div><div class="card-b">PRODUCT NAME: [Name that connects to a pillar or a truth]
+
+PILLAR BADGE: MIND / BODY / SPIRIT [small colored tag under name]
+
+TAGLINE: [Single sentence — what this piece declares]
+Example: "Wear your conviction. Carry your purpose."
+
+DESCRIPTION (2–3 sentences):
+Built for [context]. [What makes it different — material, fit, design intent]. [One sentence tying it to the J Mychaels mission.]
+
+SPECS: [Fabric, fit, sizes, care]
+
+PAIRING: "Pairs with the [X] from The Body Collection →"
+
+SOCIAL PROOF: [3 reviews — gym, church, everyday life mix]</div></div>
+  </div>
+
+  <!-- AD COPY -->
+  <div id="s2" class="section">
+
+    <div class="sl">TikTok / Instagram Reels</div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Short-Form Video</span><span class="ad-sep">—</span><span class="ad-name">Script 01 — The Why (30 sec)</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Visual Direction</div><div class="ad-v">Morning routine. Alarm. Prayer/devotion. Coffee. Gym bag. Workout clips. Sunset. Quiet and cinematic — no flash cuts.</div></div>
+        <div class="ad-row"><div class="ad-k">Text Overlays</div><div class="ad-v">"Most people keep their faith in one box..."
+"...their fitness in another."
+"...their mental health in another."
+"Like you have to choose which version of yourself shows up today."</div></div>
+        <div class="ad-row"><div class="ad-k">Voiceover / Final Frame</div><div class="ad-v">"J Mychaels doesn't believe in boxes. One life. One body. One mind. And everything you are — is worth building."
+
+[Logo] J Mychaels — Built to Last.</div></div>
+        <div class="ad-row"><div class="ad-k">Caption CTA</div><div class="ad-v">Link in bio. First drop is live. 🔥  #JMychaels #BuiltToLast #OneLifeOneBodyOneMind</div></div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Short-Form Video</span><span class="ad-sep">—</span><span class="ad-name">Script 02 — Product Drop (15 sec)</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Visual Direction</div><div class="ad-v">Hands pulling a J Mychaels tee from packaging. Close-up on design. Person putting it on. Walking into gym. Final: back of tee, walking away with purpose.</div></div>
+        <div class="ad-row"><div class="ad-k">Text Overlay</div><div class="ad-v">"What you wear is what you declare."
+
+THE BODY COLLECTION — NOW LIVE</div></div>
+        <div class="ad-row"><div class="ad-k">Voiceover</div><div class="ad-v">"New drop just hit. Built for the work. Built to last. Link in bio — free shipping on your first order."</div></div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Short-Form Video</span><span class="ad-sep">—</span><span class="ad-name">Script 03 — Testimony (45 sec)</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Visual Direction</div><div class="ad-v">Interview-style. Natural lighting. Person in J Mychaels gear — gym, outdoors, or home. Real and genuine, not scripted-feeling.</div></div>
+        <div class="ad-row"><div class="ad-k">Speaker Copy</div><div class="ad-v">"I started going to the gym to lose weight. I lost the weight. But I found something I wasn't looking for — consistency, discipline, a reason bigger than the scale.
+
+J Mychaels is the brand that makes sense of all of it for me. Mind. Body. Spirit. It's not three separate things. It's one journey."
+
+[Logo hold] J Mychaels. One Life. One Body. One Mind. Built to Last.</div></div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Meta / Facebook Ads</div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Meta — Brand Awareness</span><span class="ad-sep">—</span><span class="ad-name">Ad 01 — Cold Traffic</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Headline</div><div class="ad-v">You Only Get One Life. Dress Like You Know That.</div></div>
+        <div class="ad-row"><div class="ad-k">Primary Text</div><div class="ad-v">J Mychaels was built for people who train with purpose — body, mind, and spirit.
+
+Not just Christian gym wear. Not just fitness apparel. A brand built around the belief that how you care for your body, guard your mind, and live your faith are all the same investment.
+
+Premium gear. Real message. Built to last.
+
+👇 Shop the founding collection now.</div></div>
+        <div class="ad-row"><div class="ad-k">CTA Button</div><div class="ad-v">Shop Now</div></div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Meta — Product</span><span class="ad-sep">—</span><span class="ad-name">Ad 02 — Mid-Funnel</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Headline</div><div class="ad-v">Built Different. Because You Are.</div></div>
+        <div class="ad-row"><div class="ad-k">Primary Text</div><div class="ad-v">The [Product Name] from J Mychaels isn't just gear. It's a declaration.
+
+✔ Lightweight, performance fabric
+✔ Designed to move through reps and real life
+✔ Built around the mission: One Life. One Body. One Mind.
+
+For people who train with purpose and wear what they believe.</div></div>
+        <div class="ad-row"><div class="ad-k">CTA Button</div><div class="ad-v">Get Yours →</div></div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Meta — Retargeting</span><span class="ad-sep">—</span><span class="ad-name">Ad 03 — Warm Audience</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Headline</div><div class="ad-v">Still Thinking About It?</div></div>
+        <div class="ad-row"><div class="ad-k">Primary Text</div><div class="ad-v">You came. You looked. You left.
+
+Here's the truth: you deserve gear built to match how seriously you take your health, your faith, and your future.
+
+J Mychaels isn't for everyone. It's for people who refuse to separate who they are from how they live.
+
+One Life. One Body. One Mind. Built to Last.
+
+Your order is still waiting.</div></div>
+        <div class="ad-row"><div class="ad-k">CTA Button</div><div class="ad-v">Complete Your Order</div></div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Email Launch Sequence</div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Email 01 — Day 0</span><span class="ad-sep">—</span><span class="ad-name">Launch Day</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Subject</div><div class="ad-v">Something we've been building for you.</div></div>
+        <div class="ad-row"><div class="ad-k">Preview</div><div class="ad-v">One life. One body. One mind. And it all starts here.</div></div>
+        <div class="ad-row"><div class="ad-k">Body</div><div class="ad-v">Hey [First Name],
+
+J Mychaels is officially live.
+
+We built this for people who don't separate their faith from their fitness. Their mindset from their movement. Their Sunday from their Monday.
+
+We built it for people who know that one body, one mind, one life, and every single rep — is building something that lasts.
+
+The founding collection is live now. Shop early. Shop with purpose.
+
+[SHOP NOW]
+
+Welcome to J Mychaels. Built to Last.</div></div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Email 02 — Day 3</span><span class="ad-sep">—</span><span class="ad-name">Brand Story</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Subject</div><div class="ad-v">Why we built J Mychaels.</div></div>
+        <div class="ad-row"><div class="ad-k">Preview</div><div class="ad-v">It started with a gap...</div></div>
+        <div class="ad-row"><div class="ad-k">Body</div><div class="ad-v">Hey [First Name],
+
+Most apparel brands start with a product. We started with a question: why do people feel like they have to choose between their faith and their fitness?
+
+J Mychaels was built in that gap — for people who know that the body, the mind, and the spirit aren't three separate things. They're one life.
+
+[Read the full story →]
+
+One Life. One Body. One Mind. Built to Last.
+J Mychaels</div></div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Email 03 — Day 7</span><span class="ad-sep">—</span><span class="ad-name">Collection Spotlight</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Subject</div><div class="ad-v">The Body Collection — built for the work you're already doing.</div></div>
+        <div class="ad-row"><div class="ad-k">Preview</div><div class="ad-v">Performance gear with actual purpose.</div></div>
+        <div class="ad-row"><div class="ad-k">Body</div><div class="ad-v">Hey [First Name],
+
+We built The Body Collection for one person: the one who shows up.
+
+The one who sets the alarm anyway. Who hits the gym when no one's watching. Who treats rest as part of the training, not a weakness.
+
+Dry-fit tees. Training shorts. Hoodies built for movement. Every piece designed to remind you what you're building this for.
+
+[SHOP THE BODY COLLECTION →]
+
+J Mychaels. One Life. One Body. One Mind. Built to Last.</div></div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-h"><span class="ad-type">Email 04 — Day 14</span><span class="ad-sep">—</span><span class="ad-name">Community & Social Proof</span></div>
+      <div class="ad-b">
+        <div class="ad-row"><div class="ad-k">Subject</div><div class="ad-v">People are building with us.</div></div>
+        <div class="ad-row"><div class="ad-k">Preview</div><div class="ad-v">See what the J Mychaels family is saying...</div></div>
+        <div class="ad-row"><div class="ad-k">Body</div><div class="ad-v">Hey [First Name],
+
+In two weeks, something real has started.
+
+People wearing J Mychaels in the gym, at church, on early mornings and late nights. Tagging us. Sharing stories. Building alongside us.
+
+[Customer photos / testimonials]
+
+"This is the brand that finally makes sense of all of it for me." — [Customer Name]
+
+[SHOP NOW — Free Shipping on First Order →]
+
+Tag us @jmychaels and welcome to the family.
+J Mychaels. One Life. One Body. One Mind. Built to Last.</div></div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sl">Hashtag & Caption Strategy</div>
+    <div class="hash-card">
+      <div class="hash-section">
+        <div class="hash-lbl">Owned hashtags — use on every post</div>
+        <div class="hash-owned">#JMychaels &nbsp; #BuiltToLast &nbsp; #OneLifeOneBodyOneMind &nbsp; #JMychaelsApparel</div>
+      </div>
+      <div class="hash-section">
+        <div class="hash-lbl">Niche reach hashtags</div>
+        <div class="hash-niche">#FaithAndFitness &nbsp; #ChristianAthlete &nbsp; #MindBodySpirit &nbsp; #TrainWithPurpose &nbsp; #FaithFitFam &nbsp; #HolisticHealth &nbsp; #GymMotivation &nbsp; #ChristianFitness</div>
+      </div>
+      <div class="hash-section" style="margin-bottom:0">
+        <div class="hash-lbl">Caption closing formula</div>
+        <div class="hash-formula">"One Life. One Body. One Mind. Built to Last. — J Mychaels 🔱"</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function switchTab(n){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
+  document.querySelectorAll('.section').forEach((s,i)=>s.classList.toggle('active',i===n));
+}
+</script>
